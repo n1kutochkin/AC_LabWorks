@@ -21,7 +21,7 @@ main Proc
     xor EAX, EAX
     value = 0FFh
 
-    mov al, byteValue
+    mov al, value
     call DumpRegs
 
     inc al
