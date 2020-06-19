@@ -25,14 +25,15 @@ main Proc
     call DumpRegs
 
     inc al
+    call DumpRegs
     mov edx, OFFSET mes1
     call WriteString
-    call DumpRegs
 
     inc al
+    call DumpRegs
     mov edx, OFFSET mes2
     call WriteString
-    call DumpRegs
+
 	;(программный код основной процедуры)
 
 exit
