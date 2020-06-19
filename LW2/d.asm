@@ -12,6 +12,7 @@ INCLUDE Irvine32.inc
 
     mes1 BYTE "OF is 1 after increment"
     mes2 BYTE "OF is 0 after increment"
+    value BYTE 127
 	;(переменные)
 
 
@@ -19,7 +20,6 @@ INCLUDE Irvine32.inc
 main Proc
 
     xor EAX, EAX
-    value = 127
 
     mov al, value
     call DumpRegs
