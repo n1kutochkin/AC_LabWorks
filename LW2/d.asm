@@ -19,7 +19,7 @@ INCLUDE Irvine32.inc
 main Proc
 
     xor EAX, EAX
-    value = 0FFh
+    value = 127
 
     mov al, value
     call DumpRegs
