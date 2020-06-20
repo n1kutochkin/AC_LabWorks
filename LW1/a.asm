@@ -9,10 +9,6 @@ TITLE вычитание трех 16-ти разрядных целых чисе
 INCLUDE Irvine32.inc
 .data
 
-	val1 DWORD 30h
-	val2 DWORD 40h
-	val3 DWORD 50h
-	FinalVal dword ?
 	mes BYTE "NUMBER IN EAX is 030h",0
 
 .code
