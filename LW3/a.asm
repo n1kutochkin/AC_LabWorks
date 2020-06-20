@@ -8,18 +8,19 @@ TITLE Числа Фибоначчи (a.asm)
 
 INCLUDE Irvine32.inc
 .data
-
-    start BYTE 1
 	;(переменные)
 
 .code
 main Proc
 
+  start = 1
+  quantityOfNumbers = 5
+
   xor eax, eax
 
   mov al, start
   mov bl, start
-  mov ecx, 5
+  mov ecx, quantityOfNumbers
   call DumpRegs
 
 notch:
@@ -27,7 +28,7 @@ notch:
   xchg bl, al
   call DumpRegs
   loop notch
-    
+
 	;(программный код основной процедуры)
 
 exit
