@@ -8,19 +8,22 @@ TITLE Арифметическое выражение (b.asm)
 
 INCLUDE Irvine32.inc
 .data
-     val1 SDWORD 8
-     val2 SDWORD -15
-     val3 SDWORD 20
+     val1 BYTE 8
+     val2 SBYTE -15
+     val3 BYTE 20
 	;(переменные)
 
 .code
 main Proc
+
+    const = 7
+
     xor eax, eax
 
     mov eax, val2
     neg EAX
 
-    add eax, 7
+    add eax, const
 
     sub eax, val3
 
