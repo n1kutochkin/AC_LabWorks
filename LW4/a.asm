@@ -33,16 +33,24 @@ main Proc
     clearDump
     putText simpleText
     howManyMessages 4
-    mov eax, gray + (lightBlue * 16)
+    mov eax, gray + (cyan * 16)
 
   notch:
-      inc EAX
       call SetTextColor
       call WriteString
+      inc EAX
 
+      mov ebx, EAX
+      mov eax, white
+
+      mov eax, ebx
+      call CrLf
       loop notch
 
 	;(программный код основной процедуры)
+
+  mov eax, white
+  call SetTextColor
 
 exit
 main ENDP
