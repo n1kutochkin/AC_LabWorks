@@ -14,21 +14,31 @@ INCLUDE Irvine32.inc
       call SetTextColor
       mov edx, OFFSET text
       call WriteString
-      call CrLf
+
   ENDM
 
 .data
 
-    myText BYTE "Look at Me!", 0
-    whiteText BYTE "This is white text", 0
-    blueText BYTE "This is blue text", 0
-    greenText BYTE "This is green text", 0
+    myText BYTE "Look at Me!", 0, 0Dh, 0Ah
+    whiteText BYTE "This is white text", 0, 0Dh, 0Ah
+    blueText BYTE "This is blue text", 0, 0Dh, 0Ah
+    greenText BYTE "This is green text", 0, 0Dh, 0Ah
 
     color BYTE ?
 
 	;(переменные)
 
 .code
+
+outputStringProc PROC color:BYTE, text:BYTE
+    call ClrScr
+    mov eax, color
+    call SetTextColor
+    mov edx, OFFSET text
+    call WriteString
+ENDP
+
+
 main Proc
 
     quantityOfStrs = 20
@@ -48,11 +58,14 @@ main Proc
 
 
           .IF ebx < 2
-              outputString white, whiteText
+              ;outputString white, whiteText
+              invoke outputStringProc, white, whiteText
           .ELSEIF ebx == 3
-              outputString blue, blueText
+              ;outputString blue, blueText
+              invoke outputStringProc, blue, blueText
           .ELSE
-              outputString green, greenText
+              ;outputString green, greenText
+              invoke outputStringProc, green, greenText
           .ENDIF
 
           mov eax, 500
